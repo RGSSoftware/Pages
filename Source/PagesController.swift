@@ -101,6 +101,7 @@ import UIKit
             if (scrollView != nil && pageControl != nil) {
                 scrollView?.frame = view.bounds
                 view.bringSubviewToFront(pageControl!)
+                pageControl?.userInteractionEnabled = false;
             }
             
         }
