@@ -83,6 +83,29 @@ import UIKit
       }
     }
   }
+  
+  public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        
+        var scrollView: UIScrollView? = nil
+        
+        for subview in view.subviews {
+            if subview is UIPageControl {
+                pageControl = subview as? UIPageControl
+            }
+            if subview is UIScrollView {
+                scrollView = subview as? UIScrollView
+            }
+            
+            if (scrollView != nil && pageControl != nil) {
+                scrollView?.frame = view.bounds
+                view.bringSubviewToFront(pageControl!)
+            }
+            
+        }
+
+    }
 }
 
 // MARK: Public methods
